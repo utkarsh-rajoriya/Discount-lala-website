@@ -15,8 +15,7 @@ const FOOTER_LINKS = {
   ],
   Support: [
     { label: "Help Center", href: "#" },
-    { label: "Contact Us", href: "#" },
-    { label: "Privacy Policy", href: "#" },
+    { label: "Privacy Policy", href: "#", page: "privacy" },
   ],
 };
 
@@ -81,24 +80,56 @@ export default function Footer({ onNavigate }) {
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      href={link.href}
-                      onClick={(e) => handleAnchor(e, link.href)}
-                      className="text-sm hover:text-orange-400 transition-colors"
-                    >
-                      {link.label}
-                    </a>
+                    {link.page ? (
+                      <button
+                        onClick={() => onNavigate(link.page)}
+                        className="text-sm hover:text-orange-400 transition-colors"
+                      >
+                        {link.label}
+                      </button>
+                    ) : (
+                      <a
+                        href={link.href}
+                        onClick={(e) => handleAnchor(e, link.href)}
+                        className="text-sm hover:text-orange-400 transition-colors"
+                      >
+                        {link.label}
+                      </a>
+                    )}
                   </li>
                 ))}
                 {title === "Support" && (
-                  <li>
-                    <button
-                      onClick={() => onNavigate("terms")}
-                      className="text-sm hover:text-orange-400 transition-colors"
-                    >
-                      Terms & Conditions
-                    </button>
-                  </li>
+                  <>
+                    <li>
+                      <button
+                        onClick={() => onNavigate("terms")}
+                        className="text-sm hover:text-orange-400 transition-colors"
+                      >
+                        Terms &amp; Conditions
+                      </button>
+                    </li>
+                    <li className="pt-2 border-t border-slate-800 mt-1">
+                      <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-2">Contact</span>
+                      <a
+                        href="mailto:support@discountlala.in"
+                        className="flex items-center gap-2 text-sm hover:text-orange-400 transition-colors mb-2"
+                      >
+                        <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                          <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                        </svg>
+                        support@discountlala.in
+                      </a>
+                      <a
+                        href="tel:+919068225827"
+                        className="flex items-center gap-2 text-sm hover:text-orange-400 transition-colors"
+                      >
+                        <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6 6l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16l.19.92z"/>
+                        </svg>
+                        +91 90682 25827
+                      </a>
+                    </li>
+                  </>
                 )}
               </ul>
             </div>

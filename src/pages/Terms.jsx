@@ -145,7 +145,7 @@ We do not sell your personal data to third parties. Data is shared with partner 
     content: `If you have any questions, concerns, or requests regarding these Terms and Conditions, please contact us:
 
 📧 Email: support@discountlala.in
-📞 Phone: +91-XXXXXXXXXX (Mon–Sat, 9 AM – 6 PM IST)
+📞 Phone: +91 90682 25827 (Mon–Sat, 9 AM – 6 PM IST)
 🏢 Address: Discount Lala Technologies Pvt. Ltd., [City], India
 
 We aim to respond to all queries within 48 business hours.
